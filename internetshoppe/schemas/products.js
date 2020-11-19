@@ -20,7 +20,8 @@ export default {
             type: 'slug',
             options: {
                 source: 'name'
-            }
+            },
+            validation: Rule => Rule.required()
         },
         {
             name: 'image',
@@ -28,21 +29,23 @@ export default {
             type: 'image',
             options: {
                 hotspot: true
-            }
+            },
+            validation: Rule => Rule.required()
         },
         {
             name: 'price',
             title: 'Price',
             type: 'number',
             description: 'Price of the product in cents',
-            validation: Rule => Rule.min(500)
+            validation: Rule => Rule.required().min(500)
             // TODO: add custom input component
         },
         {
             name: 'description',
             title: 'Description',
             type: 'text',
-            description: 'Add a product description'
+            description: 'Add a product description',
+            validation: Rule => Rule.required()
         }
     ]
 }
