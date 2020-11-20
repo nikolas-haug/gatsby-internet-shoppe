@@ -297,6 +297,10 @@ textarea {
 
   &__image {
     position: relative;
+    overflow: hidden;
+    height: 250px;
+    width: 100%;
+
 
     img {
       display: block;
