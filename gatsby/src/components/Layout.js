@@ -6,10 +6,12 @@ import '../styles/main.scss';
 
 export default function Layout({ children }) {
     return (
-        <div className="container-med">
+        <>
             <Nav />
-                {children}
+                <div className="container-lg">
+                        {children}
+                </div>
             <Footer />
-        </div>
+        </>
     )
 }

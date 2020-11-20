@@ -23,6 +23,13 @@ module.exports = {
         watchMode: true,
         token: process.env.SANITY_TOKEN
       }
+    },
+    {
+      resolve: `gatsby-plugin-snipcart`,
+      options: {
+        apiKey: process.env.SNIPCART_API_KEY,
+        autopop: true
+      }
     }
   ],
 }
