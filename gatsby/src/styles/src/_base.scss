@@ -1,0 +1,103 @@
+/**
+*
+* BASE HTML
+*
+*/
+
+html {
+    font-size: $base-font-size;
+    font-family: $font-family-primary;
+    color: $font-color-primary;
+}
+
+body {
+    line-height: $base-line-height;
+    background-color: $global-background-color;
+    font-size: $font-size-primary;
+}
+
+p,
+ol,
+ul,
+dl,
+table {
+    margin: 0 0 $typography-margins 0;
+    letter-spacing: $letter-spacing-content;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: $typography-margins 0;
+    font-weight: $heading-font-weight;
+    font-family: $heading-font-family-primary;
+    letter-spacing: $letter-spacing-heading;
+    line-height: $heading-line-height;
+    color: $heading-font-color-primary;
+}
+
+// Small headings (mobile)
+h1 {
+    font-size: $h1-small;
+}
+
+h2 {
+    font-size: $h2-small;
+}
+
+h3 {
+    font-size: $h3-small;
+}
+
+h4 {
+    font-size: $h4-small;
+}
+
+h5 {
+    font-size: $h5-small;
+}
+
+// General headings
+@include small-breakpoint {
+    h1 {
+        font-size: $h1-primary;
+    }
+    
+    h2 {
+        font-size: $h2-primary;
+    }
+    
+    h3 {
+        font-size: $h3-primary;
+    }
+    
+    h4 {
+        font-size: $h4-primary;
+    }
+    
+    h5 {
+        font-size: $h5-primary;
+    }
+}
+
+// Links
+a {
+    color: $color-link;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color-link-hover;
+        text-decoration: underline;
+    }
+}
+
+// Selection styles
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

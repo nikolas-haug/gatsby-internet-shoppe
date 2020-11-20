@@ -1,0 +1,22 @@
+/**
+*
+* Reset the box-sizing to border box
+*
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+// Remove figure margin
+figure {
+    margin: 0;
+}

@@ -1,0 +1,560 @@
+/** 
+*
+* COMPONENTS
+*
+*/
+
+//===================================================
+// BUTTONS
+//===================================================
+%buttons {
+  -webkit-appearance: none;
+  display: inline-block;
+  border: $button-border-width $button-border-style $button-border-color;
+  border-radius: $button-border-radius;
+  background: $button-background-color;
+  color: $button-color;
+  font-weight: $button-font-weight;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  text-transform: $button-text-transform;
+  padding: $button-padding;
+  margin: $button-margin;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: $button-line-height;
+  transition: $button-transition;
+}
+// Buttons on hover
+%buttons-hover {
+  border: $button-border-width $button-border-style darken($button-border-color, 10%);
+  background: $button-background-hover;
+  color: $button-color;
+  text-decoration: none;
+}
+
+// Buttons on focus
+%buttons-focus {
+  border: $button-border-width $button-border-style darken($button-border-color, 10%);
+  background: darken($button-background-color, 10%);
+  color: $button-color;
+  text-decoration: none;
+}
+
+// Add styles to .button class, button element, and button-based inputs
+#{$buttons} {
+  @extend %buttons;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:hover {
+    @extend %buttons-hover;
+  }
+
+  &:focus,
+  &:active {
+    @extend %buttons-focus;
+  }
+}
+
+// Secondary accent button color
+.accent-button,
+a.accent-button {
+  color: $accent-button-color;
+  border: 1px solid $accent-button-background-color;
+  background: $accent-button-background-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid darken($accent-button-background-color, 10%);
+    background: darken($accent-button-background-color, 10%);
+  }
+}
+
+// Muted buttons
+.muted-button,
+a.muted-button {
+  background: $muted-background;
+  border: $muted-border;
+  color: $muted-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $muted-color-hover;
+    border: $muted-border-hover;
+    background: $muted-background-hover;
+  }
+}
+
+// Round buttons
+.round-button,
+a.round-button {
+  border-radius: $round-buttons;
+}
+
+// Square buttons
+.square-button,
+a.square-button {
+  border-radius: 0;
+}
+
+// Full width buttons (block level)
+.full-button,
+a.full-button {
+  display: block;
+  width: 100%;
+}
+
+//===================================================
+// FORMS
+//===================================================
+
+// Display for all input fields (except Buttons, Checkboxes, and Radio buttons)
+%forms {
+  display: block;
+  border: $form-border;
+  border-radius: $border-radius;
+  padding: $form-padding;
+  outline: none;
+  background: $input-background;
+  color: $input-color;
+  margin: $form-margin;
+  font-size: $font-size-primary;
+  width: 100%;
+  max-width: 100%;
+  line-height: 1;
+}
+
+// Input fields on hover
+%forms-hover {
+  border: $form-border-hover;
+}
+
+// Input fields on focus
+%forms-focus {
+  border: $form-border-focus;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px lighten($color-link, 30%);
+}
+
+// Variable containing all input fields
+#{$forms} {
+  @extend %forms;
+
+  &:hover {
+    @extend %forms-hover;
+  }
+
+  &:focus,
+  &:active {
+    @extend %forms-focus;
+  }
+}
+
+// Textarea
+textarea {
+  overflow: auto;
+  height: auto;
+}
+
+fieldset {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 1rem;
+  margin: $typography-margins 0;
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+}
+
+// Fix issues with Select
+select {
+	display: block;
+	border: $borders;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAYAAAA/33wPAAAAvklEQVQoFY2QMQqEMBBFv7ERa/EMXkGw11K8QbDXzuN4BHv7QO6ifUgj7v4UAdlVM8Uwf+b9YZJISnlqrfEUZVlinucnBGKaJgghbiHOyLyFKIoCbdvecpyReYvo/Ma2bajrGtbaC58kCdZ1RZ7nl/4/4d5EsO/7nzl7IUtodBexMMagaRrs+06JLMvcNWmaOv2W/C/TMAyD58dxROgSmvxFFMdxoOs6lliWBXEcuzokXRbRoJRyvqqqQvye+QDMDz1D6yuj9wAAAABJRU5ErkJggg==);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+select::-ms-expand {
+	display: none;
+}
+select option {
+	font-weight:normal;
+}
+
+select::-ms-expand {
+  display: none; // dropdown icon fix for IE
+}
+
+// Make Range full width
+[type="range"] {
+  width: 100%;
+}
+
+
+// Checkboxes & Radio buttons
+#{$other-forms} {
+  
+  & + label {
+    display: inline-block;
+  }
+  
+  &:checked + label {
+    color: $color-secondary;
+  }
+  
+}
+
+// Labels
+label {
+  font-weight: 600;
+  max-width: 100%;
+  display: block;
+  margin: 1rem 0 0.5rem;
+}
+
+// Form validation
+input,
+select,
+textarea {
+  &.has-error {
+    border: 1px solid $error;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 3px lighten($error, 35%);
+  }
+
+  &.is-success {
+    border: 1px solid $success;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 3px lighten($success, 25%);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &.has-error {
+      @extend .has-error;
+    }
+
+    &.is-success {
+      @extend .is-success;
+    }
+  }
+}
+
+// Placeholder Text
+::-webkit-input-placeholder { /* Edge */
+  color: $placeholder-color;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: $placeholder-color;
+}
+
+::placeholder {
+  color: $placeholder-color;
+}
+
+//===================================================
+// Cards
+// 
+// <div class="card">
+//     <div class="card__content">
+//         <span class="card__title">Card Title</span>
+//         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+//     </div>
+//     <div class="card__action">
+//         <a href="#" class="button">Action 1</a>
+//         <a href="#" class="button">Action 2</a>
+//     </div>
+// </div>
+//===================================================
+
+.card {
+  position: relative;
+  margin: $card-margins;
+  background-color: $card-color;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+
+  &__content {
+    padding: 2.5rem;
+    border-radius: 0 0 2px 2px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    img {
+      display: block;
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    display: block;
+    line-height: $card-title-line-height;
+    font-size: $card-title-font-size;
+    margin-bottom: 1.5rem;
+  }
+
+  &__action {
+    background-color: inherit;
+    border-top: 1px solid $color-grey-light;
+    position: relative;
+    padding: 1.5rem 2.5rem;
+
+    a, .button, button {
+      margin: 0;
+    }
+  }
+
+}
+
+//===================================================
+// MODAL
+// <div id="{data-target}" class="modal">
+//     <div class="modal__content">
+//         <span class="modal__close">&times;</span>
+//          { MODAL CONTENT HERE }
+//     </div>
+// </div>
+//===================================================
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  right: 0;
+  background-color: $color-grey-light;
+  padding: 2rem;
+  max-height: 70%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: $border-radius;
+  will-change: transform, opacity;
+
+  &.open {
+    display: block;
+  }
+
+  &__close {
+      position: absolute;
+      top: .5rem;
+      right: 2rem;
+      color: $color-grey-dark;
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+  
+    &__close:hover,
+    &__close:focus {
+      color: darken($color-grey-dark, 15%);
+      text-decoration: none;
+      cursor: pointer;
+    }
+}
+
+.modal-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: -25%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 125%;
+  width: 100%;
+  background: rgba($color: $color-grey-dark, $alpha: .85);
+  will-change: opacity;
+}
+
+.modal-fade-in {
+  animation: modal-fade-in .3s ease-out;
+}
+
+@keyframes modal-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+//===================================================
+// TABLES
+//===================================================
+
+// Table expands to full width of containing element
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  color: $table-color;
+}
+
+// Extra border underneath header
+thead th {
+  border-bottom: $table-heading-border;
+}
+
+// Extra border above footer
+tfoot th {
+  border-top: $table-footer-border;
+}
+
+td {
+  border-bottom: $table-data-border;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+caption {
+  padding: 1.5rem 0;
+  caption-side: $caption-position;
+  color: $color-grey-dark;
+  font-style: italic;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: $color-secondary;
+}
+
+// Container for responsive tables
+.table-overflow {
+  overflow-x: auto;
+}
+
+@include small-breakpoint {
+  .table-overflow {
+    width: 100%;
+  }
+}
+
+//===================================================
+// BLOCKQUOTE
+//
+//     <blockquote>
+// 	      <p>A woman must have money and a room of her own if she is to write fiction.</p>
+// 	      <cite>Virginia Woolf</cite>
+//     </blockquote>
+//
+//===================================================
+
+blockquote {
+  background: $blockquote-background-color;
+  margin: 0 0 $typography-margins 0;
+  border-left: 5px solid $blockquote-border-color;
+  padding: 0 1.5rem;
+  font-size: $blockquote-font-size;
+
+  cite {
+    display: block;
+    margin-top: $typography-margins;
+    font-size: $blockquote-cite-font-size;
+  }
+}
+
+//===================================================
+// Scroll to top button
+//
+//  <div class="scroll-top-btn"></div>
+//
+//===================================================
+
+.scroll-top-button {
+  opacity: 0;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 999;
+  font-size: $font-size-primary;
+  background-color: $color-primary;
+  color: $color-grey-light;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: .5rem;
+  transition: opacity .3s ease-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 0 10px $color-secondary;
+  }
+}
+
+//===================================================
+// CODE / KEYBOARD INPUT
+//===================================================
+
+// Code block styling
+pre {
+  border: 0;
+  border-radius: $border-radius;
+  background: $code-background;
+  padding: 1rem;
+  tab-size: 2;
+  color: $code-color;
+  font-family: $code-family;
+  font-size: $code-size;
+  margin: 0 0 $typography-margins 0;
+
+  code {
+    font-family: $code-family;
+    line-height: 1.2;
+  }
+}
+
+// Keyboard input
+kbd {
+  background-color: $color-white;
+  border: 1px solid $color-grey-light;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px $color-white inset;
+  color: $color-grey-dark;
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin: 0 .1rem;
+  padding: .1rem .6rem;
+  text-shadow: 0 1px 0 $color-white;
+}
+
+// Inline code styling
+:not(pre) > code {
+  color: $code-color;
+  background: $code-background;
+  font-family: $code-family;
+  font-size: $code-size;
+  padding: 0 0.2rem;
+  border-radius: $border-radius;
+}

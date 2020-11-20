@@ -1,0 +1,323 @@
+/** 
+*
+* UTILITY CLASSES
+*
+*/
+
+// Clearfix
+.clearfix {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+// Display
+.dis-block {
+    display: block;
+}
+
+.dis-inline {
+    display: inline;
+}
+
+.dis-inline-block {
+    display: inline-block;
+}
+
+.dis-flex {
+    display: flex;
+}
+
+// Display state
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.flex-dir-row {
+    flex-direction: row;
+}
+
+.flex-dir-col {
+    flex-direction: column;
+}
+
+// Floats
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+// Margins
+.margin-auto {
+    margin: 0 auto;
+}
+
+.margin-top-auto {
+    margin-top: auto !important;
+}
+
+.margin-bottom-auto {
+    margin-bottom: auto !important;
+}
+
+.margin-left-auto {
+    margin-left: auto !important;
+}
+
+.margin-right-auto {
+    margin-right: auto !important;
+}
+
+.margin-top-zero {
+    margin-top: 0;
+}
+
+.margin-bottom-zero {
+    margin-bottom: 0;
+}
+
+.margin-left-zero {
+    margin-left: 0;
+}
+
+.margin-right-zero {
+    margin-right: 0;
+}
+
+.margin-top {
+    margin-top: $margin-utility;
+}
+
+.margin-bottom {
+    margin-bottom: $margin-utility;
+}
+
+.margin-left {
+    margin-left: $margin-utility;
+}
+
+.margin-right {
+    margin-right: $margin-utility;
+}
+
+.margin-complete {
+    margin: $margin-utility;
+}
+
+// Paddings
+.padding-top-auto {
+    padding-top: auto;
+}
+
+.padding-bottom-auto {
+    padding-bottom: auto;
+}
+
+.padding-left-auto {
+    padding-left: auto;
+}
+
+.padding-right-auto {
+    padding-right: auto;
+}
+
+.padding-top-zero {
+    padding-top: 0;
+}
+
+.padding-bottom-zero {
+    padding-bottom: 0;
+}
+
+.padding-left-zero {
+    padding-left: 0;
+}
+
+.padding-right-zero {
+    padding-right: 0;
+}
+
+.padding-top {
+    padding-top: $padding-utility;
+}
+
+.padding-bottom {
+    padding-bottom: $padding-utility;
+}
+
+.padding-left {
+    padding-left: $padding-utility;
+}
+
+.padding-right {
+    padding-right: $padding-utility;
+}
+
+.padding-complete {
+    padding: $padding-utility;
+}
+
+// Text alignment
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// Images
+.img-100 {
+    width: 100%;
+    height: auto;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// Justify and align content/items
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// No margins and paddings and content placement for different breakpoints
+@include x-small-breakpoint {
+    .pad-sm-0 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pad-sm-r-0 {
+        padding-right: 0;
+    }
+
+    .pad-sm-l-0 {
+        padding-left: 0;
+    }
+
+    .mar-sm-0 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .justify-content-sm-center {
+        justify-content: center;
+    }
+
+    .justify-content-sm-between {
+        justify-content: space-between;
+    }
+
+    .justify-content-sm-around {
+        justify-content: space-around;
+    }
+}
+
+@include small-breakpoint {
+    .pad-med-0 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pad-med-r-0 {
+        padding-right: 0;
+    }
+
+    .pad-med-l-0 {
+        padding-left: 0;
+    }
+
+    .mar-med-0 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .justify-content-med-center {
+        justify-content: center;
+    }
+
+    .justify-content-med-between {
+        justify-content: space-between;
+    }
+
+    .justify-content-med-around {
+        justify-content: space-around;
+    }
+}
+
+@include medium-breakpoint {
+    .pad-lg-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .pad-lg-r-0 {
+        padding-right: 0;
+    }
+
+    .pad-lg-l-0 {
+        padding-left: 0;
+    }
+
+    .mar-lg-0 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+     // Justify and align content
+    .justify-content-lg-center {
+        justify-content: center;
+    }
+
+    .justify-content-lg-between {
+        justify-content: space-between;
+    }
+
+    .justify-content-lg-around {
+        justify-content: space-around;
+    }
+}

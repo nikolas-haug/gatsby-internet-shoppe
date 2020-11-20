@@ -1,0 +1,224 @@
+/**
+*
+* LAYOUT
+*
+*/
+
+// CONTAINERS
+
+.container {
+  @include container-styles;
+}
+
+.container-stretch {
+  @include container-styles;
+}
+
+// FIXED SIZE CONTAINERS
+
+.container-sm {
+  @include container-size($x-small, $container-gutter);
+  @include container-styles;
+}
+
+.container-med {
+  @include container-size($small, $container-gutter);
+  @include container-styles;
+}
+
+.container-lg {
+  @include container-size($medium, $container-gutter);
+  @include container-styles;
+}
+
+// MAIN CONTAINER BREAKPOINTS 
+
+@include x-small-breakpoint {
+  .container {
+    @include container-size($x-small, $container-gutter);
+  }
+}
+
+@include small-breakpoint {
+  .container {
+    @include container-size($small, $container-gutter);
+  }
+}
+
+@include medium-breakpoint {
+  .container {
+    @include container-size($medium, $container-gutter);
+  }
+}
+
+@include large-breakpoint {
+  .container {
+    @include container-size($large, $container-gutter);
+  }
+}
+
+// ROWS
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -#{$grid-padding};
+  margin-left: -#{$grid-padding};
+}
+
+// Gallery Rows
+.row-gallery {
+  max-height: $row-gallery-height;
+  overflow: hidden;
+}
+
+%col-styles {
+  position: relative;
+  width: 100%;
+  padding-right: $grid-padding;
+  padding-left: $grid-padding;
+}
+
+@mixin col-x-list {
+  @for $i from 1 through $grid-columns {
+      .col-#{$i}, .col-sm-#{$i}, .col-med-#{$i}, .col-lg-#{$i}, .col, .col-sm, .col-med, .col-lg { @extend %col-styles; }
+  }
+}
+
+@include col-x-list;
+
+// Row Columns
+[class*="row-cols-"] > * {
+  flex: 0 0 100%;
+  max-width: 100%; 
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+// Custom Row Spacing
+.row-custom {
+  margin-right: -#{$grid-column-padding-custom};
+  margin-left: -#{$grid-column-padding-custom};
+}
+  
+.row-custom > [class*="col-"] {
+  padding-right: $grid-column-padding-custom;
+  padding-left: $grid-column-padding-custom;
+}
+
+@for $i from 1 through $grid-columns {
+  .row-cols-#{$i} {
+    @include row-cols($i);
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    flex-basis: percentage($i / $grid-columns);
+    max-width: percentage($i / $grid-columns);
+  }
+  .col-offset-#{$i} {
+    margin-left: percentage($i / $grid-columns);
+  }
+}
+
+// Between x-small and small breakpoints
+@include x-small-breakpoint {
+
+  // Auto-sized columns
+  .col-sm {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col-sm-#{$i} {
+      flex-basis: percentage($i / $grid-columns);
+      max-width: percentage($i / $grid-columns);
+    }
+    .col-sm-offset-#{$i} {
+      margin-left: percentage($i / $grid-columns);
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .row-cols-sm-#{$i} {
+      @include row-cols($i);
+    }
+  }
+}
+
+// Between small and medium breakpoints
+@include small-breakpoint {
+
+  // Auto-sized columns
+  .col-med {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col-med-#{$i} {
+      flex-basis: percentage($i / $grid-columns);
+      max-width: percentage($i / $grid-columns);
+    }
+    .col-med-offset-#{$i} {
+      margin-left: percentage($i / $grid-columns);
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .row-cols-med-#{$i} {
+      @include row-cols($i);
+    }
+  }
+}
+
+// Between medium and large breakpoints
+@include medium-breakpoint {
+
+  // Auto-sized columns
+  .col-lg {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col-lg-#{$i} {
+      flex-basis: percentage($i / $grid-columns);
+      max-width: percentage($i / $grid-columns);
+    }
+    .col-lg-offset-#{$i} {
+      margin-left: percentage($i / $grid-columns);
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .row-cols-lg-#{$i} {
+      @include row-cols($i);
+    }
+  }
+}

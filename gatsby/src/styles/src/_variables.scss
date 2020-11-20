@@ -1,0 +1,242 @@
+/** 
+*
+* VARIABLES
+*
+*/
+
+//=====================================================
+// COLOR
+//=====================================================
+
+// Grayscale first design palette
+$color-primary: #424242;
+$color-secondary: #757575;
+$color-tertiary: #9e9e9e;
+$color-quarternary: #e0e0e0;
+
+$color-grey-dark: #212121;
+$color-grey-light: #eee;
+
+// Basic
+$color-white: #f7f7f7;
+$color-black: #101010;
+
+// Global
+$global-background-color: $color-grey-light;
+
+// Links
+$color-link: $color-secondary;
+$color-link-hover: darken($color-link, 10%);
+
+//=====================================================
+// CONTAINERS
+//=====================================================
+
+// (Media query ~ breakpoints)
+// 0 - 600px        :     Phone
+// 600 - 900px      :     Tablet portrait
+// 900 - 1200px     :     Tablet landscape
+// 1200 - 1800px    :     ~ Desktop 
+// 1800px +         :     Large desktop
+
+// Convert to em for accessible media queries (px / 16)
+
+$x-small: 480px;
+$small: 850px;
+$medium: 992px;
+$large: 1200px;
+
+// Sets the width of the containers
+$container-gutter: 0.95;
+
+//=====================================================
+// GRID
+//=====================================================
+
+// Controls the number of columns for the layout
+$grid-columns: 12;
+
+// General variable for all containers, rows, and columns
+$grid-padding: 1.5rem;
+
+// Custom col padding
+$grid-column-padding-custom: .5rem;
+
+// Gallery row fixed height
+$row-gallery-height: 20rem;
+
+//=====================================================
+// TYPOGRAPHY
+//=====================================================
+
+// Set the default to 1rem size for browser window resize
+$base-font-size: 62.5%;
+$base-line-height: 1.6;
+
+// Global
+$font-family-primary: "Roboto", "Arial", sans-serif;
+$font-color-primary: $color-grey-dark;
+$font-color-secondary: $color-grey-light;
+$font-size-primary: 1.6rem;
+
+// Headings
+$heading-font-family-primary: "Roboto", "Arial", sans-serif; 
+$heading-font-color-primary: $color-grey-dark;
+$heading-font-color-secondary: $color-grey-light;
+$heading-font-weight: 600;
+$heading-line-height: 1.2;
+
+// Small headings
+$h1-small: 2.8rem;
+$h2-small: 2.6rem;
+$h3-small: 2.2rem;
+$h4-small: 1.8rem;
+$h5-small: 1.4rem;
+
+// Primary headings
+$h1-primary: 3.6rem;
+$h2-primary: 3.2rem;
+$h3-primary: 2.8rem;
+$h4-primary: 2.4rem;
+$h5-primary: 2rem;
+
+// Block element spacing
+$typography-margins: 1.2rem;
+
+// Letter spacing
+$letter-spacing-content: .8px;
+$letter-spacing-heading: 1px;
+
+//=====================================================
+// SPACING
+//=====================================================
+
+$margin-utility: 1.5rem;
+$padding-utility: 1.5rem;
+
+//=====================================================
+// BORDERS
+//=====================================================
+
+$border-width: 1px;
+$border-style: solid;
+$border-color: $color-grey-dark;
+$border-radius: .5rem;
+$borders: $border-width $border-style $border-color;
+
+//=====================================================
+// FORMS
+//=====================================================
+
+$forms: (
+  "[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea"
+);
+
+// Colors
+$input-background: $color-white;
+$input-color: $color-grey-dark;
+$placeholder-color: $color-secondary;
+
+// Borders
+$form-border: 1px solid $border-color;
+$form-border-hover: 1px solid $color-secondary;
+$form-border-focus: 1px solid $color-secondary;
+
+// Margin and Pading
+$form-margin: 0 0 .5rem 0;
+$form-padding: 1rem;
+
+// Checkboxes & Radio buttons
+$other-forms: ( "[type="checkbox"], [type="radio"]" );
+
+// Alerts
+$success: green;
+$error: red;
+
+//======================================================
+// BUTTONS
+//======================================================
+
+$buttons: (".button, a.button, button, [type=submit], [type=reset], [type=button]");
+
+// All button styles ********************
+
+// Colors
+$button-background-color: $color-primary;
+$button-color: $color-grey-light; 
+$button-background-hover: darken($button-background-color, 10%);
+
+// Typography
+$button-font-weight: 400;
+$button-font-family: "Roboto", "Arial", sans-serif;
+$button-font-size: $font-size-primary;
+$button-line-height: 1;
+$button-text-transform: uppercase;
+
+// Borders
+$button-border-width: 1px;
+$button-border-style: solid;
+$button-border-color: $button-background-color;
+$button-border-radius: $border-radius;
+
+// Margin and Padding
+$button-margin: 0 0 1.5rem 0;
+$button-padding: 1rem 1.5rem;
+
+// Transition
+$button-transition: all 0.3s;
+
+// End all styles ***********************
+
+// Accent buttons
+$accent-button-background-color: $color-secondary;
+$accent-button-color: $color-grey-light;
+
+// Muted Buttons
+$muted-border: 1px solid $color-primary;
+$muted-border-hover: 1px solid lighten($color-primary, 30%);
+$muted-background: transparent;
+$muted-background-hover: transparent;
+$muted-color: $color-primary;
+$muted-color-hover: $color-secondary;
+
+// Round Buttons
+$round-buttons: 5rem;
+
+//==============================================================================
+// CARDS
+//==============================================================================
+
+$card-color: $color-white;
+$card-title-font-size: 3rem;
+$card-title-line-height: 3rem;
+$card-margins: 0 0 1rem 0;
+
+//==============================================================================
+// TABLES
+//==============================================================================
+
+$table-color: $color-grey-dark;
+$table-heading-border: 2px solid $border-color;
+$table-footer-border: 2px solid $border-color;
+$table-data-border: 1px solid $border-color;
+$caption-position: bottom;
+
+//==============================================================================
+// BLOCKQUOTES
+//==============================================================================
+
+$blockquote-font-size: 1.3rem;
+$blockquote-border-color: $color-grey-dark;
+$blockquote-background-color: transparent;
+$blockquote-cite-font-size: 1rem;
+
+//==============================================================================
+// CODE
+//==============================================================================
+
+$code-color: $font-color-primary;
+$code-size: 1.4rem;
+$code-family: Menlo, monospace;
+$code-background: #e5e5e5;
+$code-borders: $borders;

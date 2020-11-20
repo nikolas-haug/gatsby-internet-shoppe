@@ -1,0 +1,491 @@
+/** 
+*
+* NAVIGATION
+*
+*/
+
+//===================================================
+// Basic Navigation - (navbar-basic.js)
+//
+// <div class="navbar-basic">
+//     <nav class="navbar-basic__container container-med">
+//         <a href="#" class="navbar-basic__home-link">
+//             <div class="navbar-basic__logo"></div>
+//             LOGO
+//         </a>
+//         <button type="button" class="navbar-basic__toggle" aria-label="Open navigation menu">
+//             <span class="icon-bar"></span>
+//             <span class="icon-bar"></span>
+//             <span class="icon-bar"></span>
+//         </button>
+//         <div class="navbar-basic__menu">
+//         <ul class="navbar-basic__links">
+//             <li class="navbar-basic__item"><a class="navbar-basic__link" href="#">About</a></li>
+//             <li class="navbar-basic__item"><a class="navbar-basic__link" href="#">CSS</a></li>
+//             <li class="navbar-basic__item"><a class="navbar-basic__link" href="#">Javascript</a></li>
+//         </ul>
+//         </div>
+//     </nav>
+// </div>
+//
+//===================================================
+
+.navbar-basic {
+  height: 6.4rem;
+  background-color: $color-primary;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-basic__container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.navbar-basic__item {
+  margin: 0.4rem;
+  width: 100%;
+}
+
+.navbar-basic__home-link,
+.navbar-basic__link {
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+  color: $color-grey-light;
+  display: flex;
+  font-weight: 400;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.navbar-basic__link {
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 0.2rem;
+}
+
+.navbar-basic__link:focus,
+.navbar-basic__link:hover {
+  background-color: $color-secondary;
+}
+
+.navbar-basic__logo {
+  background-color: $color-grey-light;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5em;
+}
+
+.navbar-basic__toggle {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.icon-bar {
+  display: block;
+  width: 25px;
+  height: 4px;
+  margin: 2px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  background-color: $color-grey-light;
+}
+
+.navbar-basic.opened .navbar-basic__toggle .icon-bar:first-child,
+.navbar-basic.opened .navbar-basic__toggle .icon-bar:last-child {
+  position: absolute;
+  margin: 0;
+  width: 30px;
+}
+
+.navbar-basic.opened .navbar-basic__toggle .icon-bar:first-child {
+  transform: rotate(45deg);
+}
+
+.navbar-basic.opened .navbar-basic__toggle .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-basic.opened .navbar-basic__toggle .icon-bar:last-child {
+  transform: rotate(-45deg);
+}
+
+.navbar-basic__menu {
+  position: absolute;
+  top: 6.4rem;
+  bottom: 0;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar-basic.opened .navbar-basic__menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-basic__links {
+  list-style-type: none;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  background-color: $color-primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 1.4rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+}
+
+.navbar-basic.opened .navbar-basic__links {
+  padding: 1rem;
+  max-height: none;
+}
+
+// Media query
+@media screen and (min-width: $medium) {
+  .navbar-basic__toggle {
+    display: none;
+  }
+
+  .navbar-basic .navbar-basic__menu,
+  .navbar-basic.opened .navbar-basic__menu {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    // display: block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-basic__item {
+    width: initial;
+  }
+
+  .navbar-basic .navbar-basic__links,
+  .navbar-basic.opened .navbar-basic__links {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    position: static;
+    flex-direction: row;
+    list-style-type: none;
+    max-height: max-content;
+    width: 100%;
+    height: 100%;
+  }
+
+  .navbar-basic .navbar-basic__link:last-child {
+    margin-right: 0;
+  }
+}
+
+//===================================================
+// Base Navigation - (nav-base.js) designed for Wordpress themes
+//
+// Use this in the template file:
+//
+//  <nav id="basse-navigation" class="base-navigation">
+//      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false aria-label="Toggle Nav Menu">
+//          <span class="hamburger"></span>
+//      </button>
+//  <!-- Wordpress dynamic nav goes here -->
+//  <ul><li><a></a></li></ul>
+//  </nav>
+//
+//===================================================
+.base-navigation {
+  width: 100%;
+  background: $color-primary;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+.base-navigation ul li a {
+  display: inline-block;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  color: $color-grey-light;
+
+  &:hover {
+    color: $font-color-primary;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 3px;
+  width: 35px;
+  background: #fff;
+  position: absolute;
+  display: block;
+  content: "";
+}
+
+.hamburger::before {
+  top: -10px;
+}
+
+.hamburger::after {
+  top: 10px;
+}
+
+.menu-toggle .active .hamburger::before {
+  top: 0;
+}
+
+.active .hamburger {
+  background: transparent;
+}
+
+.active .hamburger::before,
+.active .hamburger::after {
+  top: 0;
+}
+
+.active .hamburger::before {
+  transform: rotate(45deg);
+}
+
+.active .hamburger::after {
+  transform: rotate(-45deg);
+}
+
+// Media query
+@media (max-width: $small) {
+  .base-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    ul {
+      opacity: 0;
+      max-height: 0;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  }
+  .menu-toggle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2.5rem;
+    background: $color-primary;
+    border: none;
+    margin-bottom: 0;
+    &:focus,
+    &:active,
+    &:hover {
+      background: $color-primary;
+      border: none;
+      margin-bottom: 0;
+    }
+  }
+  .base-navigation.toggled ul {
+    position: relative;
+    opacity: 1;
+    max-height: 100%;
+    z-index: 9999;
+  }
+}
+
+//===================================================
+// Slider Nav - (slider-nav.js)
+//
+// <div class="slider-nav">
+//     <div class="container-lg">
+//         <div class="row">
+//             <div class="col-10 col-med-4 dis-flex align-items-center">
+//                 <a href="#logo" class="slider-nav__logo">
+//                      LOGO
+//                 </a>
+//             </div>
+//             <div class="col-2 col-med-8">
+//                 <nav class="slider-menu">
+//                     <div>
+//                         <ul>
+//                             <li><a href="#">About</a></li>
+//                             <li><a href="#">CSS</a></li>
+//                             <li><a href="#">Javascript</a></li>
+//                         </ul>
+//                     </div>
+//                 </nav>
+//                 <div class="slider-menu__toggler"><span></span></div>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+//===================================================
+
+/*
+ * MENU BUTTON
+ */
+ body.dimmed {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+ .slider-nav {
+    width: 100%;
+    padding: 1rem 0;
+    background: $color-primary;
+
+    &__logo {
+        display: inline-block;
+        font-size: 2rem;
+        letter-spacing: .125rem;
+        color: $color-grey-light;
+        transition: all .3s ease;
+        
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
+        }
+    }
+  }
+  
+ .slider-menu__toggler {
+    position: relative;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: none; // hide on larger viewport
+    align-items: center;
+    justify-content: center;
+  }
+  .slider-menu__toggler span,
+  .slider-menu__toggler span::before,
+  .slider-menu__toggler span::after {
+    position: absolute;
+    content: "";
+    width: 28px;
+    height: 2.5px;
+    background: $color-grey-light;
+    border-radius: 20px;
+    transition: all .5s;
+  }
+  .slider-menu__toggler span::before {
+    top: -8px;
+  }
+  .slider-menu__toggler span::after {
+    top: 8px;
+  }
+  // active menu classes
+  .slider-menu__toggler.active > span {
+    position: fixed;
+    background: transparent;
+  }
+  .slider-menu__toggler.active > span::before,
+  .slider-menu__toggler.active > span::after {
+    top: 0px;
+  }
+  .slider-menu__toggler.active > span::before {
+    transform: rotate(-225deg);
+    background: $color-grey-dark;
+  }
+  .slider-menu__toggler.active > span::after {
+    transform: rotate(225deg);
+    background: $color-grey-dark;
+  }
+  /*
+    * SLIDING MENU PANEL - Desktop view
+  */
+  .slider-menu {
+    height: 100%;
+    background: inherit;
+    justify-content: center;
+    transition: 0.3s right ease-out;
+  }
+  .slider-menu.active {
+    right: 0;
+  }
+  .slider-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+  }
+  .slider-menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    padding: 1rem;
+    color: $color-grey-light;
+    transition: all 0.3s;
+  }
+  .slider-menu ul li a:hover {
+    color: $color-secondary;
+  }
+  /* 
+   * MEDIA QUERIES - Adjust query max-width according to logo/branding size in nav
+  */
+  @media only screen and (max-width: $small) {
+    .slider-menu {
+      width: 25rem;
+      right: -25rem;
+      padding: 5rem 0 0 3.5rem;
+    }
+    .slider-menu {
+      position: fixed;
+      top: 0;
+      z-index: 998;
+      height: 100%;
+      background: $global-background-color;
+    }
+    .slider-menu ul {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+    .slider-menu ul li a {
+      font-size: 2rem;
+      color: $color-grey-dark;
+    }
+    .slider-menu__toggler {
+      display: flex;
+    }
+  }

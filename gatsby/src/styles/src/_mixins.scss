@@ -1,0 +1,48 @@
+/** 
+*
+* Media queries for a mobile first layout
+*
+*/
+
+@mixin x-small-breakpoint {
+    @media only screen and (min-width: #{$x-small}) {
+        @content;
+    }
+}
+
+@mixin small-breakpoint {
+    @media only screen and (min-width: #{$small}) {
+        @content;
+    }
+}
+
+@mixin medium-breakpoint {
+    @media only screen and (min-width: #{$medium}) {
+        @content;
+    }
+}
+
+@mixin large-breakpoint {
+    @media only screen and (min-width: #{$large}) {
+        @content;
+    }
+}
+
+@mixin container-size($size, $gutter) {
+    max-width: calc(#{$size} * #{$gutter}); 
+}
+
+@mixin container-styles {
+    width: 100%;
+    padding-right: $grid-padding;
+    padding-left: $grid-padding; 
+    margin-right: auto;
+    margin-left: auto; 
+}
+
+@mixin row-cols($count) {
+    & > * {
+      flex: 0 0 100% / $count;
+      max-width: 100% / $count;
+    }
+}
