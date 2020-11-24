@@ -1,10 +1,13 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
+import formatMoney from '../utils/formatMoney';
 
 export default function singleProductPage({ data }) {
     console.log(data);
     const product = data.product;
+    const productPrice = formatMoney(data.product.price);
+    console.log(productPrice.replace('$', ''));
     return (
         <>
             <div className="row margin-top">
@@ -16,8 +19,17 @@ export default function singleProductPage({ data }) {
                     <p>{product.description}</p>
                 </div>
                 <div className="col-med-2">
-                    <p>{product.price}</p>
-                    <button>Add to cart</button>
+                    <p>{formatMoney(product.price)}</p>
+                    <button className="snipcart-add-item"
+                        data-item-id={product.id}
+                        data-item-price={formatMoney(product.price).replace('$', '')}
+                        data-item-url={product.slug.current}
+                        data-item-description={product.description}
+                        data-item-image={product.image.asset.fluid.src}
+                        data-item-name={product.name}
+                    >
+                        Add to cart
+                    </button>
                 </div>
             </div>
         </>

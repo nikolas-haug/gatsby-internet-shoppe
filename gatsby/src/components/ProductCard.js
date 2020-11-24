@@ -15,18 +15,6 @@ export default function ProductCard({ product }) {
                     </Link>
                     <p>{product.description}</p>
                 </div>
-                <div className="card__action">
-                    <button className="snipcart-add-item"
-                        data-item-id={product.id}
-                        data-item-price={product.price}
-                        data-item-url={product.slug.current}
-                        data-item-description={product.description}
-                        data-item-image={product.image.asset.fluid.src}
-                        data-item-name={product.name}
-                    >
-                        Add to cart
-                    </button>
-                </div>
             </div>
         </div>
     )

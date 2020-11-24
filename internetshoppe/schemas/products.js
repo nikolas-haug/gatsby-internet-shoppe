@@ -1,3 +1,5 @@
+import PriceInput from '../components/PriceInput';
+
 export default {
     // Computer name
     name: 'product',
@@ -37,8 +39,9 @@ export default {
             title: 'Price',
             type: 'number',
             description: 'Price of the product in cents',
-            validation: Rule => Rule.required().min(500)
+            validation: Rule => Rule.required().min(500),
             // TODO: add custom input component
+            inputComponent: PriceInput
         },
         {
             name: 'description',
