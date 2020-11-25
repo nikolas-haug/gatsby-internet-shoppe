@@ -9,17 +9,14 @@ export default function singleProductPage({ data }) {
     const productPrice = formatMoney(data.product.price);
     console.log(productPrice.replace('$', ''));
     return (
-        <>
+        <div className="container-med">
             <div className="row margin-top">
                 <div className="col-med-2">
                     <Img fluid={product.image.asset.fluid} alt={product.name}/>
                 </div>
-                <div className="col-med-8">
+                <div className="col-med-10">
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
-                </div>
-                <div className="col-med-2">
-                    <p>{formatMoney(product.price)}</p>
                     <button className="snipcart-add-item"
                         data-item-id={product.id}
                         data-item-price={formatMoney(product.price).replace('$', '')}
@@ -30,9 +27,10 @@ export default function singleProductPage({ data }) {
                     >
                         Add to cart
                     </button>
+                    <p>{formatMoney(product.price)}</p>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
