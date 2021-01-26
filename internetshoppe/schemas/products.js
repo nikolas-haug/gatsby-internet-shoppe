@@ -43,6 +43,33 @@ export default {
             // TODO: add custom input component
             inputComponent: PriceInput
         },
+        // {
+        //     title: 'Variants',
+        //     name: 'variants',
+        //     type: 'array',
+        //     validation: Rule => Rule.required().min(1),
+        //     of: [
+        //       {
+        //         title: 'Variant',
+        //         type: 'productVariant'
+        //       }
+        //     ]
+        //   },
+          {
+            title: 'Sizes',
+            name: 'sizes',
+            type: 'array',
+            validation: Rule => Rule.required().min(1),
+            of: [{type: 'string'}],
+            options: {
+                list: [
+                  {title: 'XLarge', value: 'xlarge'},
+                  {title: 'Large', value: 'large'},
+                  {title: 'Medium', value: 'medium'},
+                  {title: 'Small', value: 'small'}
+                ]
+              }
+          },
         {
             name: 'description',
             title: 'Description',

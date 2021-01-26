@@ -32,12 +32,39 @@ module.exports = {
         token: process.env.SANITY_TOKEN
       }
     },
+    // {
+    //   resolve: `gatsby-plugin-snipcart`,
+    //   options: {
+    //     apiKey: process.env.SNIPCART_API_KEY,
+    //     autopop: true
+    //   }
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-snipcartv3',
+    //   options: {
+    //     apiKey: process.env.SNIPCART_API_KEY
+    //   }
+    // },
     {
-      resolve: `gatsby-plugin-snipcart`,
+      resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
-        apiKey: process.env.SNIPCART_API_KEY,
-        autopop: true
-      }
-    }
+          version: '3.0.26',
+          publicApiKey: process.env.SNIPCART_API_KEY, // use public api key here or in environment variable
+          // defaultLang: 'en',
+          // currency: 'usd',
+          openCartOnAdd: true,
+          // locales: {
+          //   fr: {
+          //     actions: {
+          //       checkout: 'Valider le panier',
+          //     },
+          //   }
+          // },
+          // innerHTML: `
+          // <billing section="bottom">
+          //     <!-- Customization goes here -->
+          // </billing>`,
+      },
+  },
   ],
 }

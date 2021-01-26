@@ -7,11 +7,11 @@ export default function Home({ data }) {
   console.log(products);
 
   // Change the close button in the cart when it contains items
-  useEffect(() => {
-      if (window.Snipcart) {
-        window.Snipcart.api.configure('show_continue_shopping', true);
-      }
-  }, []);
+  // useEffect(() => {
+  //     if (window.Snipcart) {
+  //       window.Snipcart.api.configure('show_continue_shopping', true);
+  //     }
+  // }, []);
   
   return (
     <>
