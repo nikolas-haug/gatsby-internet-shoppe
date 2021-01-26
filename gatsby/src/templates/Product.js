@@ -30,15 +30,14 @@ export default function SingleProductPage({ data }) {
                         data-item-custom1-name={product.sizes ? 'Size' : ''}
                         data-item-custom1-options={product.sizes ? product.sizes.join('|') : ''}
                         data-item-custom1-value={product.sizes ? selected : ''}
-                        // data-item-custom1-options="Black|Brown|Gold"
                     >
                         Add to cart
                     </button>
                     <div>
                         <p>Avaiable in these sizes:</p>
                         {
-                            product.sizes.map((size) => {
-                               return <span>{size} </span>
+                            product.sizes.map((size, index) => {
+                               return <span key={index}>{size} </span>
                             })
                         }
                     </div>
@@ -55,13 +54,6 @@ export default function SingleProductPage({ data }) {
                 </div>
             </div>
         </div>
-
-                        // <Dropdown
-                        // id={item.frontmatter.customField.name}
-                        // onChange={(e) => this.setSelected(e.target.value)}
-                        // value={this.state.selected}>
-                        // {item.frontmatter.customField.values.map((option) => (<DropdownOption key={option.name}>{option.name}</DropdownOption>))}
-                        // </Dropdown>
     )
 }
 
