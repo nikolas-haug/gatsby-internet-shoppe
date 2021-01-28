@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { graphql } from 'gatsby';
 import ProductGrid from "../components/ProductGrid";
+import CategoriesFilter from "../components/CategoriesFilter";
 
 export default function Home({ data }) {
   const products = data.allSanityProduct.nodes;
@@ -16,6 +17,7 @@ export default function Home({ data }) {
   return (
     <>
       <h1>I'm the homepage</h1>
+      <CategoriesFilter />
       <ProductGrid products={products} />
     </>
   )

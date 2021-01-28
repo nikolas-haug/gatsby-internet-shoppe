@@ -80,8 +80,9 @@ export default {
         {
             name: 'category',
             title: 'Product Category',
-            type: 'reference',
-            to: [{ type: 'category' }]
+            type: 'array',
+            of: [{ type: 'reference', to: [{ type: 'category' }] }],
+            validation: Rule => Rule.required().min(1),
         }
     ]
 }
