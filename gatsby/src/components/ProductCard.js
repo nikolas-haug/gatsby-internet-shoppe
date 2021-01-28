@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
                     <Img fluid={product.image.asset.fluid} alt={product.name} />
                 </div>
                 <div className="card__content">
-                    <Link to={`product/${product.slug.current}`}>
+                    <Link to={`/product/${product.slug.current}`}>
                         <span className="card__title">{product.name}</span>
                     </Link>
                     <p>{product.description}</p>

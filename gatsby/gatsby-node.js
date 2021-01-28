@@ -32,8 +32,42 @@ async function turnProductsIntoPages({ graphql, actions }) {
     })
 }
 
+async function turnCategoriesIntoPages({ graphql, actions }) {
+    // 1. get the template
+    const categoriesTemplate = path.resolve('./src/pages/index.js');
+    // 2. query all the categories
+    const { data } = await graphql(`
+        query {
+            categories: allSanityCategory {
+                nodes {
+                    id
+                    name
+                }
+            }
+        }
+    `);
+    // 3. createpage for that category
+    data.categories.nodes.forEach((category) => {
+        console.log(`creating page for category`, category.name);
+        actions.createPage({
+            // url for the new page
+            path: `category/${(category.name).toLowerCase()}`,
+            component: categoriesTemplate,
+            context: {
+                category: category.name
+            }
+        })
+    });
+    // 4. pass category data to index.js
+}
+
 export async function createPages(params) {
     // create pages dynamically
-    // 1. products
-    await turnProductsIntoPages(params);
+    // wait for all promises to be resolved before finishing this function
+    await Promise.all([
+        // 1. products
+        turnProductsIntoPages(params),
+        // 2. categories
+        turnCategoriesIntoPages(params)
+    ])
 }
