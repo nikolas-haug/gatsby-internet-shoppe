@@ -22,5 +22,16 @@
         .count {
             color: $color-primary;
         }
+
+        &[aria-current='page'] {
+            background-color: plum;
+        }
+
     }
+    
+    // .active {
+    //     background-color: plum;
+    // }
+
+    
 }

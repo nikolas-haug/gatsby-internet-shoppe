@@ -28,7 +28,7 @@ function countProductsInCategories(products) {
         return sortedCategories;
 }
 
-export default function CategoriesFilter() {
+export default function CategoriesFilter({ activeCategory }) {
     // get a list of all the categories
     // get a list of all the products with their categories
     const { categories, products } = useStaticQuery(graphql`
@@ -56,8 +56,12 @@ export default function CategoriesFilter() {
     // link it up... 
     return (
         <div className="category__wrapper">
+            <Link to={"/"}>
+                <span className="name">All</span>
+                <span className="count">{products.nodes.length}</span>
+            </Link>
             {categoriesWithCounts.map(category => (
-                <Link key={category.id} to={`/category/${(category.name).toLowerCase()}`}>
+                <Link key={category.id} to={`/category/${(category.name).toLowerCase()}`} className={category.name === activeCategory ? 'active' : ''}>
                     <span className="name">{category.name}</span>
                     <span className="count">{category.count}</span>
                 </Link>
