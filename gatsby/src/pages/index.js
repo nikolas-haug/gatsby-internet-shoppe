@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import ProductGrid from "../components/ProductGrid";
 import CategoriesFilter from "../components/CategoriesFilter";
 
-export default function Home({ data }) {
-  const products = data.allSanityProduct.nodes;
+export default function Home({ data, pageContext }) {
+  const products = data.products.nodes;
   console.log(products);
 
   // Change the close button in the cart when it contains items
@@ -17,15 +17,23 @@ export default function Home({ data }) {
   return (
     <>
       <h1>I'm the homepage</h1>
-      <CategoriesFilter />
+      <CategoriesFilter activeCategory={pageContext.category} />
       <ProductGrid products={products} />
     </>
   )
 }
 
 export const query = graphql`
-  query MyQuery {
-      allSanityProduct {
+  query MyQuery($categoryRegex: String) {
+      products: allSanityProduct(filter: {
+        category: {
+          elemMatch: {
+            name: {
+              regex: $categoryRegex
+            }
+          }
+        }
+      }) {
       nodes {
         description
         id

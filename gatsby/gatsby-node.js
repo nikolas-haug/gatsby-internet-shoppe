@@ -54,7 +54,9 @@ async function turnCategoriesIntoPages({ graphql, actions }) {
             path: `category/${(category.name).toLowerCase()}`,
             component: categoriesTemplate,
             context: {
-                category: category.name
+                category: category.name,
+                // regex for category
+                categoryRegex: `/${category.name}/i`
             }
         })
     });
