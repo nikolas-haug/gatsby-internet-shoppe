@@ -49,6 +49,26 @@
     }
 }
 
+.photo {
+    max-height: 200px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .3s ease;
+    transform: translate(0, 40px);
+    animation: slide-in 1.5s ease forwards;
+
+    &:hover {
+        box-shadow: 0 3px 5px rgba($color: #000000, $alpha: .4);
+    }
+}
+
+@keyframes slide-in {
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
 @keyframes fade-in {
     0% {
         opacity: 0;

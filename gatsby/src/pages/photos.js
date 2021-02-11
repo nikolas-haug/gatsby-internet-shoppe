@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import Photo from '../components/Photo';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 export default function Photos({ data }) {
     const photos = data.allPhotosJson.edges;
@@ -59,23 +60,25 @@ export default function Photos({ data }) {
     return (
         <>
             <h1>blog</h1>
-            <div className="row">
-                {
-                    list.map((photo, i) => (
-                        <Photo key={photo.node.id} photo={photo.node} delay={list.length == extendedList ? i : i - extendedList} />
-                    ))
-                }
-            </div>
-            <div className="row justify-content-center margin-top margin-bottom">
+            <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+                <Masonry gutter="15px">
+                    {
+                        list.map((photo, i) => (
+                            <Photo key={photo.node.id} photo={photo.node} delay={list.length == extendedList ? i : i - extendedList} />
+                        ))
+                    }
+                </Masonry>
+            </ResponsiveMasonry>
+            {/* <div className="row justify-content-center margin-top margin-bottom">
                 {hasMore ? (
                     <button onClick={handleLoadMore}>Load More</button>
                     ) : (
                     <p>No more results</p>
                 )}
-            </div>
-            {/* <div ref={loadRef} className="row justify-content-center margin-top margin-bottom">
-                {hasMore ? <p>Loading...</p> : <p>No more results</p>}
             </div> */}
+            <div ref={loadRef} className="row justify-content-center margin-top margin-bottom">
+                {hasMore ? <p>Loading...</p> : <p>No more results</p>}
+            </div>
         </>
     )
 }
