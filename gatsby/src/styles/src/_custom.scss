@@ -37,12 +37,16 @@
 }
 
 .blogpost {
-    // border: 1px solid blue;
     padding: 1rem;
 
     opacity: 0;
+    transition: all .3s ease;
     transform: translate(0, -20px);
     animation: fade-in 1s ease forwards;
+
+    &:hover {
+        box-shadow: 0 5px 10px rgba($color: #000000, $alpha: .5);
+    }
 }
 
 @keyframes fade-in {
