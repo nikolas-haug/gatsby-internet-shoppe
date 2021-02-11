@@ -60,7 +60,7 @@ export default function Photos({ data }) {
     return (
         <>
             <h1>blog</h1>
-            <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+            <ResponsiveMasonry columnsCountBreakPoints={{750: 2, 900: 3}}>
                 <Masonry gutter="15px">
                     {
                         list.map((photo, i) => (
