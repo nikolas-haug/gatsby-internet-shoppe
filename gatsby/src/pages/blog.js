@@ -10,11 +10,17 @@ export default function Blog({ data }) {
     const [loadMore, setLoadMore] = useState(false);
     const [hasMore, setHasMore] = useState(posts.length > 10);
 
+    const [extendedList, setExtendedList] = useState(list.length);
+    console.log(extendedList);
+
     useEffect(() => {
         if(loadMore && hasMore) {
             const currentLength = list.length;
             const isMore = currentLength < posts.length;
             const nextResults = isMore ? posts.slice(currentLength, currentLength + 10) : [];
+            console.log('currentLength', currentLength);
+            console.log('nextResults', nextResults);
+            setExtendedList(currentLength);
             setList([...list, ...nextResults]); 
             setLoadMore(false);
         }
@@ -31,13 +37,24 @@ export default function Blog({ data }) {
         setLoadMore(true)
     }
 
+    // create an array for delay times
+    const makeDelayArray = () => {
+        let delayArr = [];
+        for(let i = 0; i < 10; i++) {
+            delayArr.push(i);
+        }
+        return delayArr;
+    }
+
+    console.log(makeDelayArray());
+
     return (
         <>
             <h1>blog</h1>
             <div className="row">
                 {
                     list.map((post, i) => (
-                        <BlogPost key={post.node.id} post={post.node} delay={i} />
+                        <BlogPost key={post.node.id} post={post.node} delay={list.length == 10 ? i : i - extendedList} />
                     ))
                 }
             </div>
