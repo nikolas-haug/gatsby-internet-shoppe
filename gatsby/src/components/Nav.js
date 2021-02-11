@@ -20,6 +20,7 @@ export default function Nav() {
                         <li className="navbar-basic__item"><Link className="navbar-basic__link" onClick={() => setIsOpen(false)} to={'/'}>Home</Link></li>
                         <li className="navbar-basic__item"><Link className="navbar-basic__link" onClick={() => setIsOpen(false)} to={'/about'}>About</Link></li>
                         <li className="navbar-basic__item"><Link className="navbar-basic__link" onClick={() => setIsOpen(false)} to={'/blog'}>blog</Link></li>
+                        <li className="navbar-basic__item"><Link className="navbar-basic__link" onClick={() => setIsOpen(false)} to={'/photos'}>photos</Link></li>
                         <div className="Header__summary snipcart-summary snipcart-checkout">
                             <div className="Header__summary__title">
                                 🛍 MY CART 🛍
