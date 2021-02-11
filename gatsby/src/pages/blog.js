@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import BlogPost from '../components/BlogPost';
 
@@ -9,6 +9,30 @@ export default function Blog({ data }) {
     const [loadMore, setLoadMore] = useState(false);
     const [hasMore, setHasMore] = useState(posts.length > 10);
     const [extendedList, setExtendedList] = useState(list.length);
+
+    const loadRef = useRef();
+
+    // Handle intersection with load more div
+    const handleObserver = (entities) => {
+        console.log(entities);
+        const target = entities[0]
+        if (target.isIntersecting) {
+        setLoadMore(true)
+        }
+    }
+
+    //Initialize the intersection observer API
+    useEffect(() => {
+        var options = {
+            root: null,
+            rootMargin: "20px",
+            threshold: 1.0,
+        }
+        const observer = new IntersectionObserver(handleObserver, options)
+            if (loadRef.current) {
+            observer.observe(loadRef.current)
+        }
+    }, [])
 
     useEffect(() => {
         if(loadMore && hasMore) {
@@ -28,9 +52,9 @@ export default function Blog({ data }) {
     }, [list]); //eslint-disable-line
 
     // Load more button click
-    const handleLoadMore = () => {
-        setLoadMore(true)
-    }
+    // const handleLoadMore = () => {
+    //     setLoadMore(true)
+    // }
 
     return (
         <>
@@ -42,12 +66,15 @@ export default function Blog({ data }) {
                     ))
                 }
             </div>
-            <div className="row justify-content-center margin-top margin-bottom">
+            {/* <div className="row justify-content-center margin-top margin-bottom">
                 {hasMore ? (
                     <button onClick={handleLoadMore}>Load More</button>
                     ) : (
                     <p>No more results</p>
                 )}
+            </div> */}
+            <div ref={loadRef} className="row justify-content-center margin-top margin-bottom">
+                {hasMore ? <p>Loading...</p> : <p>No more results</p>}
             </div>
         </>
     )
