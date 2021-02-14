@@ -54,6 +54,7 @@
     overflow: hidden;
     opacity: 0;
     transition: all .3s ease;
+    cursor: pointer;
     transform: translate(0, 40px);
     animation: slide-in 1.5s ease forwards;
 
