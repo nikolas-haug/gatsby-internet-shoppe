@@ -48,7 +48,6 @@ export default function CategoriesFilter({ activeCategory }) {
             }
         }
     `);
-    console.clear();
     // count how many products are in each category
     const categoriesWithCounts = countProductsInCategories(products.nodes);
     console.log(categoriesWithCounts);
