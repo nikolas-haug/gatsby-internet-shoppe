@@ -56,11 +56,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
-          version: '3.0.26',
+          version: '3.0.29',
           publicApiKey: process.env.SNIPCART_API_KEY, // use public api key here or in environment variable
           // defaultLang: 'en',
           // currency: 'usd',
           openCartOnAdd: true,
+          useSideCart: true,
           // locales: {
           //   fr: {
           //     actions: {
