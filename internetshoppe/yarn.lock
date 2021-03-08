@@ -7618,6 +7618,12 @@ sanity-plugin-dashboard-widget-cats@^0.0.2:
   dependencies:
     get-it "^4.1.4"
 
+sanity-plugin-dashboard-widget-document-list@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.npmjs.org/sanity-plugin-dashboard-widget-document-list/-/sanity-plugin-dashboard-widget-document-list-0.0.11.tgz#1533a7d35f95f1265cb4777dac770dfd53a426cb"
+  dependencies:
+    lodash "^4.17.15"
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"

@@ -15,7 +15,9 @@
     "@sanity/desk-tool",
     "asset-source-unsplash",
     "@sanity/dashboard",
-    "dashboard-widget-cats"
+    "dashboard-widget-cats",
+    "dashboard-widget-document-list",
+    "dashboard-widget-structure-menu"
   ],
   "env": {
     "development": {
