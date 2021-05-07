@@ -17,7 +17,7 @@ export default function Blog({ data }) {
         console.log(entities);
         const target = entities[0]
         if (target.isIntersecting) {
-        setLoadMore(true)
+            setLoadMore(true)
         }
     }
 
