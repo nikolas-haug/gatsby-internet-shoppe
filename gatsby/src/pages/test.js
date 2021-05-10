@@ -2,12 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PortableText from '@sanity/block-content-to-react';
 
+const serializer = {};
+
 export default function Test({ data }) {
     console.log(data);
     return (
         <>
             <h1>test page</h1>
-            <PortableText blocks={data.allSanityBlogPost.nodes[0].content} />
+            <PortableText blocks={data.allSanityBlogPost.nodes[0].content} serializers={serializer} />
         </>
     )
 }
